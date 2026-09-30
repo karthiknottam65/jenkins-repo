@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Test') {
+            steps {
+                sh 'test -f index.html'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'cp index.html /var/www/html/index.html'
+            }
+        }
+
+    }
+}
